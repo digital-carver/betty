@@ -22,7 +22,7 @@ module Calculate
         command: "echo 'scale=10;sqrt(#{arg1})' | bc",
         explanation: "Calculates square root of #{arg1}"
       }
-    return responses
+      return responses
     end
 
 
@@ -31,9 +31,9 @@ module Calculate
 
       power_text = matches[1]
       if power_text == 'square'
-         power = 2
+        power = 2
       elsif power_text == 'cube'
-         power = 3
+        power = 3
       else 
         return []
       end
@@ -43,12 +43,12 @@ module Calculate
       else 
         return []
       end
-     
+
       responses << {
         command: "echo '#{arg1}^#{power}' | bc",
         explanation: "Calculates #{power_text} of #{arg1}"
       }
-    return responses
+      return responses
     end
 
 
@@ -61,12 +61,12 @@ module Calculate
       else 
         return []
       end
-     
+
       responses << {
         command: "echo '#{arg1}^#{arg3}' | bc",
         explanation: "Calculates #{arg1} to the power of #{arg3}"
       }
-    return responses
+      return responses
     end
 
 
@@ -84,29 +84,29 @@ module Calculate
         command: "echo 'scale=2;#{arg1}*#{arg2}/100' | bc",
         explanation: "Calculates #{arg1} percent of #{arg2}"
       }
-    return responses
+      return responses
     end
 
     matches = command.match(/^what\s+is\s+(.+)\s+choose\s+(.)$/)
     if matches
- 
+
       if (matches[1].numeric? && matches[2].numeric?)
         arg1 = matches[1]
         arg2 = matches[2]
       else 
         return []
       end
-      
+
       responses << {
         command: "echo 'define f (x) { if (x <= 1) return (1); return (f(x-1) * x); } f(#{arg1})/(f(#{arg2})*f(#{arg1}-#{arg2}))' | bc",
         explanation: "Calculates #{arg1} choose #{arg2}"
       }
-    return responses
+      return responses
     end
-    
+
     matches = command.match(/^what\s+is\s+(.+)\s+(.+)\s(.+)$/)
     if matches
- 
+
       if (matches[1].numeric? && matches[3].numeric?)
         arg1 = matches[1]
         arg2 = matches[3]
@@ -128,7 +128,7 @@ module Calculate
       else
         return []
       end
-      
+
       responses << {
         command: "echo '#{arg1}#{op}#{arg2}' | bc",
         explanation: "Calculates #{arg1}#{op}#{arg2}"
@@ -137,7 +137,7 @@ module Calculate
 
     responses
   end
-  
+
   def self.help
     commands = []
     commands << {

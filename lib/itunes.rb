@@ -125,14 +125,14 @@ module ITunes
       :category => "iTunes",
       :description => 'Control \033[34miTunes\033[0m',
       :usage => ["mute itunes",
-      "unmute itunes",
-      "pause the music",
-      "resume itunes",
-      "stop my music",
-      "next song",
-      "prev track",
-      "what song is playing",
-      "(Note that the words song, track, music, etc. are interchangeable)"]
+                 "unmute itunes",
+                 "pause the music",
+                 "resume itunes",
+                 "stop my music",
+                 "next song",
+                 "prev track",
+                 "what song is playing",
+                 "(Note that the words song, track, music, etc. are interchangeable)"]
     }
     commands
   end

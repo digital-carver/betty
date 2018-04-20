@@ -1,7 +1,7 @@
 module Datetime
   def self.interpret(command)
     responses = []
-    
+
     if command.match(/^((what[s]?)|which)\s+(is\s+)?(the\s)?\s*time(\s+is\s+it)?(\s+now)?\??$/i)
       responses << {
         :command => "date +\"%r (%T)\"",
@@ -39,9 +39,9 @@ module Datetime
       :category => "Datetime",
       :description => 'Show information about \033[34mDatetime\033[0m',
       :usage => ["what time is it",
-      "what is todays date",
-      "what month is it",
-      "whats today"]
+                 "what is todays date",
+                 "what month is it",
+                 "whats today"]
     }
     commands
   end

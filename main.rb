@@ -36,10 +36,10 @@ end
 def get_input_y_n
   while true
     case STDIN.gets.strip.downcase
-      when 'y', 'yes'
-        return true
-      when 'n', 'no'
-        return false
+    when 'y', 'yes'
+      return true
+    when 'n', 'no'
+      return false
     end
 
     say "Sorry, please enter Y for Yes or N for No."
@@ -163,9 +163,9 @@ def web_query(command)
   path += "&timeZone="+Time.now.zone
   path += "&exclude=ChatBot,Dialogues" if not chatmode
   begin
-      require 'json'
+    require 'json'
   rescue
-      path += "&out=simple" #no json, just text
+    path += "&out=simple" #no json, just text
   end
 
   # puts web_service+path

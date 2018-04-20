@@ -13,7 +13,7 @@ module Shutdown
       elsif action[1] > "0" 
         option_when = "+" + action[1]
       end
-  
+
       flags = command.match(/shutdown/) ? '-h' : '-r' ##shutdown or restart
 
       responses << {

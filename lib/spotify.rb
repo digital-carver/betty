@@ -1,7 +1,7 @@
 require File.expand_path('../commands.rb', __FILE__)
 
 module Spotify
-  
+
   def self.start(command)
     matching = command.match(/^(start|resume|play)\s+(spotify|((?:the|my)\s+)?music)$/i)
 
@@ -101,9 +101,9 @@ module Spotify
       :category => "Spotify",
       :description => 'Control \033[34mSpotify\033[0m',
       :usage => ["play spotify",
-      "pause spotify",
-      "next spotify",
-      "previous spotify"]
+                 "pause spotify",
+                 "next spotify",
+                 "previous spotify"]
     }
     commands
   end

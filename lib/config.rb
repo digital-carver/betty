@@ -1,13 +1,13 @@
 module BettyConfig
   require 'yaml'
-  
+
   @@config = {}
   @@default_config = {"name" => "Betty","speech"=>false,"speaker"=>"","web"=>false,"chat"=>false}
-  
+
   def self.config_object
     @@config.inspect
   end
-  
+
   def self.initialize
     @@config = {}
     if File.exist?(ENV['HOME'] + '/.bettyconfig')
@@ -19,23 +19,23 @@ module BettyConfig
       end
     end
   end
-  
+
   def self.set(name, value)
     @@config[name] = value
     self.save
   end
-  
+
   def self.get(name)
     @@config[name] || @@default_config[name]
   end
-  
+
   def self.save
     File.open(ENV['HOME'] + '/.bettyconfig', 'w') { |file| file.write(@@config.to_yaml) }
   end
-  
+
   def self.interpret(command)
     responses = []
-    
+
     # todo: merge all turn ... on|off commands
     if command.match(/^(turn|switch|the|\s)*speech\s+on$/i) || command.match(/^speak\s+to\s+me$/)
       if self.get("speaker").empty?
@@ -62,7 +62,7 @@ module BettyConfig
         :say => "Speech OFF"
       }
     end
-    
+
     if command.match(/^(turn|switch|the|\s)*web(\s*mode)?\s+on$/i) || command.match(/^use\s(the\s)?internet$/)
       responses << {
         :call_before => lambda { self.set("web", true) },
@@ -76,7 +76,7 @@ module BettyConfig
         :say => "Web queries OFF"
       }
     end
-    
+
     if command.match(/^(turn|switch|the|\s)*chat(\s*mode)?\s+on$/i) || command.match(/^chat\swith\sme$/)
       responses << {
         :call_before => lambda { self.set("chat", true) },
@@ -90,18 +90,18 @@ module BettyConfig
         :say => "Chatmode OFF"
       }
     end
-    
+
     if command.match(/^(list\s(your\s)?voices)/i)
-        if User.has_command?('say')
-            responses << {
-                :command => 'say -v "?"',
-                :explanation => 'List the availables voices for text-to-speech.'
-            }
-        else
-            responses << {
-                :say => "I don't seem to have a voice at all (the program 'say' would help me get some)."
-            }
-        end
+      if User.has_command?('say')
+        responses << {
+          :command => 'say -v "?"',
+          :explanation => 'List the availables voices for text-to-speech.'
+        }
+      else
+        responses << {
+          :say => "I don't seem to have a voice at all (the program 'say' would help me get some)."
+        }
+      end
     end
 
     if command.match(/^(?:set|change|make)\s+(?:your|betty\'?s?)\s+voice\s+to\s+(.+)$/i)
@@ -126,11 +126,11 @@ module BettyConfig
         :say => "OK. Call me #{ new_name } from now on."
       }
     end
-    
+
     if command.match(/^what\'?s?(?:\s+is)?\s+your(\s+mother\s+fucking?)?\s+name\??$/i)
       my_name = self.get("name")
       snoop_part = $1 ? 'Snoop Doggy ' : ''
-      
+
       responses << {
         :say => "My name is #{ snoop_part }#{ my_name }."
       }
@@ -144,8 +144,8 @@ module BettyConfig
     commands << {
       :category => "Config",
       :usage => ["change your name to Joe",
-      "speak to me",
-      "stop speaking to me"]
+                 "speak to me",
+                 "stop speaking to me"]
     }
     commands
   end

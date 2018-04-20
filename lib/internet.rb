@@ -94,13 +94,13 @@ module Internet
       :category => "Internet",
       :description => 'Download files from \033[34mInternet\033[0m, uncompress/compress them',
       :usage => ["download http://www.mysite.com/something.tar.gz to something.tar.gz",
-      "uncompress something.tar.gz",
-      "unarchive something.tar.gz to somedir",
-      "(You can use unzip, unarchive, untar, uncompress, and expand interchangeably.)",
-      "compress /path/to/dir",
-      "(You can use archive, compress, and star interchangeably.)",
-      "(You can also specify to archive using zip, bzip tar, or gzip tar; the default is gzipped tar.)",
-      "compress /path/to/dir to something.tar.gz"]
+                 "uncompress something.tar.gz",
+                 "unarchive something.tar.gz to somedir",
+                 "(You can use unzip, unarchive, untar, uncompress, and expand interchangeably.)",
+                 "compress /path/to/dir",
+                 "(You can use archive, compress, and star interchangeably.)",
+                 "(You can also specify to archive using zip, bzip tar, or gzip tar; the default is gzipped tar.)",
+                 "compress /path/to/dir to something.tar.gz"]
     }
     commands
   end

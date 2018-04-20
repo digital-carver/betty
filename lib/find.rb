@@ -16,7 +16,7 @@ module Find
         responses << {
           :command => "grep --include=#{ pattern } -Rn #{ contains } #{ directory }",
           :explanation => "Find files in #{ directory } with name matching "\
-                          "#{ pattern } that contain '#{ contains }'."
+          "#{ pattern } that contain '#{ contains }'."
         }
       else
         if match[1]
@@ -30,7 +30,7 @@ module Find
         responses << {
           :command => "find #{ directory } | egrep '#{ pattern }'",
           :explanation => "Find files in #{ directory } with name "\
-                          "matching #{ pattern}."
+          "matching #{ pattern}."
         }
       end
     end
@@ -44,8 +44,8 @@ module Find
       :category => "Find",
       :description => '\033[34mFind\033[0m files',
       :usage => ["betty find me all files that contain california",
-      "betty find all rb files in ./lib/",
-      "betty find all txt files"]
+                 "betty find all rb files in ./lib/",
+                 "betty find all txt files"]
     }
     commands
   end

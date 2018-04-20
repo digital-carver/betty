@@ -108,11 +108,11 @@ module Cmus
       :category => "Cmus",
       :description => 'Control \033[34mCmus\033[0m',
       :usage => ["pause cmus (requires CMus Music player to be running)",
-      "resume cmus (requires CMus Music player to be running)",
-      "stop cmus (requires CMus Music player to be running)",
-      "next cmus (requires CMus Music player to be running)",
-      "prev cmus (requires CMus Music player to be running)",
-      "whats cmus playing (requires CMus Music player to be running)"]
+                 "resume cmus (requires CMus Music player to be running)",
+                 "stop cmus (requires CMus Music player to be running)",
+                 "next cmus (requires CMus Music player to be running)",
+                 "prev cmus (requires CMus Music player to be running)",
+                 "whats cmus playing (requires CMus Music player to be running)"]
     }
     commands
   end

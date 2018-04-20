@@ -4,18 +4,18 @@ module OS
     os = "Unknown OS!"
 
     case RUBY_PLATFORM
-      when /cygwin|mswin|mingw|bccwin|wince|emx/
-        os = "Windows"
-      when /darwin/
-        os = "OS X"
-      when /freebsd/
-        os = "FreeBSD"
-      when /openbsd/
-        os = "OpenBSD"
-      when /netbsd/
-        os = "NetBSD"
-      when /linux/
-        os = "Linux"
+    when /cygwin|mswin|mingw|bccwin|wince|emx/
+      os = "Windows"
+    when /darwin/
+      os = "OS X"
+    when /freebsd/
+      os = "FreeBSD"
+    when /openbsd/
+      os = "OpenBSD"
+    when /netbsd/
+      os = "NetBSD"
+    when /linux/
+      os = "Linux"
     end
 
     os
@@ -32,7 +32,7 @@ module OS
         :explanation => "Show what OS is used."
       }
     end
-    
+
     if command.match(/^(?:show|me|whats|what|is|my|\s)*kernel(?:\s|name|do i have|is used|.)*$/i)
       os = platform_name
 
